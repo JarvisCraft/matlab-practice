@@ -1,0 +1,15 @@
+function X = task_3_1(a, b)
+    assert(norm(a) < 1, 'Итерационный процесс не сходится');
+
+    limit = (1 - norm(a)) / norm(a) * e;
+
+    previousX = b;
+    currentX = a * previousX + b;
+    while norm(currentX - previousX) > limit
+        previousX = currentX;
+        currentX = a * previousX + b;
+    end
+
+    X = currentX;
+end
+
